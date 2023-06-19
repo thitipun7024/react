@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from './Navbar';
+import Listuser from './Listuser';
+import Createuser from './Createuser'
+import Updateuser from './Updateuser'
+import Minio from './minio'
+import Showminio from './showminio'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+          <Route path='/' element={<Listuser />} />
+          <Route path='/creates' element={<Createuser />} />
+          <Route path='/updateuser/:id' element={<Updateuser />} />
+          <Route path='/createminio' element={<Minio />} />
+          <Route path='/showminio' element={<Showminio />} />
+        </Routes>
     </div>
   );
 }
-
-export default App;
