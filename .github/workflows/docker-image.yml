@@ -1,6 +1,6 @@
 name: Docker Image CI
 env:
-  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }} //สร้าง secrets ussername docker hub ไว้ที่ tab settings ของ repository
+  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_ACCESS_TOKEN_REACT }} //สร้าง secrets ussername docker hub ไว้ที่ tab settings ของ repository
   DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }} //สร้าง secrets password docker hub ไว้ที่ tab settings ของ repository
 on:
   push:
