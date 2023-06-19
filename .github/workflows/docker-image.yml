@@ -1,7 +1,7 @@
 name: Docker Image CI
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKERHUB_ACCESS_TOKEN_REACT }} //สร้าง secrets ussername docker hub ไว้ที่ tab settings ของ repository
-  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }} //สร้าง secrets password docker hub ไว้ที่ tab settings ของ repository
+  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD_REACT }} //สร้าง secrets password docker hub ไว้ที่ tab settings ของ repository
 on:
   push:
     branches: [ "main" ]
@@ -22,11 +22,11 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_ACCESS_TOKEN_REACT }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD_REACT }}
       -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: taesaeng28/smartcard
+          tags: thitipun7024/test-react
